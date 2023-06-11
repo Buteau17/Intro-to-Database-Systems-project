@@ -21,3 +21,9 @@ def index(request):
     fig = px.pie(df, values='pop', names='country', title='Population of European continent')
     plot2_div = plot(fig, output_type='div')
     return render(request, "index.html", context={'plot_div': plot_div,'a_div': plot2_div })
+
+from .models import *
+
+def database_test(request):
+    x = list(Caraccident.objects.all().values())
+    return HttpResponse(x)
