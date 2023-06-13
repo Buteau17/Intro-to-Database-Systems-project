@@ -6,6 +6,7 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
+from django.db.models import Avg, Count, Min, Sum, Q
 
 
 class Caraccident(models.Model):
@@ -32,3 +33,59 @@ class Caraccident(models.Model):
     class Meta:
         managed = False
         db_table = 'caraccident'
+
+def GetLevelofinjurybygender():
+    result1 = (Caraccident.objects
+        .filter(gender__exact=1)
+        .filter(levelofinjury__isnull=False)
+        .values('levelofinjury')
+        .annotate(count=Count('levelofinjury'))
+        .order_by('levelofinjury')
+    )
+    result2 = (Caraccident.objects
+        .filter(gender__exact=2)
+        .filter(levelofinjury__isnull=False)
+        .values('levelofinjury')
+        .annotate(count=Count('levelofinjury'))
+        .order_by('levelofinjury')
+    )
+    data1 = dict()
+    data2 = dict()
+    for row in result1:
+        data1[row['levelofinjury']] = row['count']
+    for row in result2:
+        data2[row['levelofinjury']] = row['count']
+    data = dict()
+    data = {
+        'male': data1,
+        'female': data2
+    }
+    return data
+
+def AmountAccidentbymonth():
+    result = (Caraccident.objects
+        .filter(sequenceofpartiesinvolved__exact=1)
+        .values('month')
+        .annotate(deadcount=Count('sequenceofpartiesinvolved'))
+        .order_by('month')
+    )
+    data = dict()
+    for row in result:
+        data[row['month']] = row['deadcount']
+    return data
+
+
+def GetDeathByGender():
+    result = (Caraccident.objects
+        .filter(Q(levelofinjury=1) | Q(levelofinjury=5))
+        .values('gender')
+        .annotate(deadcount=Count('levelofinjury'))
+        .order_by('gender')
+    )
+    data = dict()
+    for row in result:
+        if row['gender'] == 1:
+            data['male'] = row['deadcount']
+        elif row['gender'] == 2:
+            data['female'] = row['deadcount']
+    return data
