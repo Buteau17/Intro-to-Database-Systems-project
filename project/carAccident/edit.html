@@ -7,87 +7,86 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
 </head>  
 <body>  
-<form method="POST" class="post-form" action="/emp">  
+<form method="POST" class="post-form" action="/update/{{accident.id}}">  
         {% csrf_token %}  
     <div class="container">  
 <br>  
     <div class="form-group row">  
     <label class="col-sm-1 col-form-label"></label>  
     <div class="col-sm-4">  
-    <h3>Enter Details</h3>  
+    <h3>Update Details</h3>  
     </div>  
   </div>  
     <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">Year:</label>  
+    <label class="col-sm-2 col-form-label">Year</label>  
     <div class="col-sm-4">  
-      {{ form.year }}  
+        <input type="text" name="year" id="id_year" required maxlength="20" value="{{ accident.year}}"/>  
     </div>  
   </div>  
   <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Month:</label>  
     <div class="col-sm-4">  
-      {{ form.month }}  
+        <input type="text" name="month" id="id_month" required maxlength="20" value="{{ accident.month }}" />  
     </div>  
   </div>  
     <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Day:</label>  
     <div class="col-sm-4">  
-      {{ form.day }}  
+        <input type="email" name="day" id="id_day" required maxlength="20" value="{{ accident.day }}" />  
     </div>  
   </div>  
     <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Hour:</label>  
     <div class="col-sm-4">  
-      {{ form.hour }}  
+        <input type="text" name="hour" id="id_hour" required maxlength="20" value="{{ accident.hour }}" />  
     </div>  
   </div> 
     <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Minute:</label>  
     <div class="col-sm-4">  
-      {{ form.minute }}  
+        <input type="text" name="minute" id="id_minute" required maxlength="20" value="{{ accident.minute }}" />  
     </div>  
   </div> 
     <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Type:</label>  
     <div class="col-sm-4">  
-      {{ form.type }}  
+        <input type="text" name="type" id="id_type" required maxlength="100" value="{{ accident.type }}" />  
     </div>  
   </div>
-    <div class="form-group row">  
+  <div class="form-group row">  
     <label class="col-sm-2 col-form-label">District:</label>  
     <div class="col-sm-4">  
-      {{ form.district }}  
+        <input type="text" name="district" id="id_district" required maxlength="250" value="{{ accident.district }}" />  
     </div>  
   </div>
     <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Location:</label>  
     <div class="col-sm-4">  
-      {{ form.location }}  
+        <input type="text" name="location" id="id_location" required maxlength="254" value="{{ accident.location}}" />  
     </div>  
   </div>
     <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Amount of death:</label>  
     <div class="col-sm-4">  
-      {{ form.amountofdeath}}  
+        <input type="text" name="amountofdeath" id="id_amountofdeath" required maxlength="20" value="{{ accident.amountofdeath }}" />  
     </div>  
   </div>
-    <div class="form-group row">  
+  <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Amount of injuries:</label>  
     <div class="col-sm-4">  
-      {{ form.amountofinjuries}}  
+        <input type="text" name="amountofinjuries" id="id_amountofinjuries" required maxlength="20" value="{{ accident.amountofinjuries}}" />  
     </div>  
   </div>
-    <div class="form-group row">  
+  <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Sequence of parties involved:</label>  
     <div class="col-sm-4">  
-      {{ form.sequenceofpartiesinvolved}}  
+        <input type="text" name="sequenceofpartiesinvolved" id="id_sequenceofpartiesinvolved" required maxlength="20" value="{{ accident.sequenceofpartiesinvolved }}" />  
     </div>  
   </div>
-    
     <div class="form-group row">  
     <label class="col-sm-1 col-form-label"></label>  
     <div class="col-sm-4">  
-    <button type="submit" class="btn btn-primary">Submit</button>  
+    <button type="submit" class="btn btn-success">Update</button>  
     </div>  
   </div>  
     </div>  

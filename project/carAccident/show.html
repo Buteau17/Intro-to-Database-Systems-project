@@ -1,0 +1,52 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Accident Records</title>  
+     {% load staticfiles %}  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+</head>  
+<body>  
+<table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>Year</th>  
+        <th>Month</th>  
+        <th>Day</th>  
+        <th>Hour</th>  
+        <th>Type</th> 
+        <th>District</th> 
+        <th>Location</th> 
+        <th>Amount of Death</th> 
+        <th>Amount of injuries</th> 
+        <th>Sequence of parties involved</th> 
+        
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for accident in accidents %}  
+    <tr>  
+        <td>{{ accident.year }}</td>  
+        <td>{{ accident.month }}</td>  
+        <td>{{ accident.day }}</td>  
+        <td>{{ accident.hour }}</td> 
+        <td>{{ accident.type }}</td>
+        <td>{{ accident.district }}</td>
+        <td>{{ accident.location }}</td>
+        <td>{{ accident.amountofdeath }}</td>
+        <td>{{ accident.amountofinjuries }}</td> 
+        <td>{{ accident.sequenceofpartiesinvolved }}</td>
+        <td>  
+            <a href=""><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/emp" class="btn btn-primary">Add New Record</a>
+</center>  
+</body>  
+</html>  
