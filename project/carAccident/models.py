@@ -89,3 +89,26 @@ def GetDeathByGender():
         elif row['gender'] == 2:
             data['female'] = row['deadcount']
     return data
+
+def Weather():
+    map = {
+        1: "heavy rain",
+        2: "strong wind",
+        3: "wind and sand",
+        4: "fog or smoke",
+        5: "snowy",
+        6: "rainy",
+        7: "cloudy",
+        8: "sunny"
+    }
+    result = (Caraccident.objects
+        .filter(sequenceofpartiesinvolved__exact=1)
+        .filter(weather__isnull=False)
+        .values('weather')
+        .annotate(count=Count('weather'))
+        .order_by('weather')
+    )
+    data = dict()
+    for row in result:
+        data[map[row['weather']]] = row['count']
+    return data
