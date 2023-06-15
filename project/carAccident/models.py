@@ -10,7 +10,8 @@ from django.db.models import Avg, Count, Min, Sum, Q
 
 
 class Caraccident(models.Model):
-    year = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
+    year = models.IntegerField()
     month = models.IntegerField()
     day = models.IntegerField()
     hour = models.IntegerField()

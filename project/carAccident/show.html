@@ -3,13 +3,14 @@
 <head>  
     <meta charset="UTF-8">  
     <title>Accident Records</title>  
-     {% load staticfiles %}  
+     {% load static %}  
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
 </head>  
 <body>  
 <table class="table table-striped table-bordered table-sm">  
     <thead class="thead-dark">  
     <tr>  
+        <th>ID</th>  
         <th>Year</th>  
         <th>Month</th>  
         <th>Day</th>  
@@ -26,6 +27,7 @@
     <tbody>  
 {% for caraccident in caraccidents %}  
     <tr>  
+        <td>{{ caraccident.id }}</td>  
         <td>{{ caraccident.year }}</td>  
         <td>{{ caraccident.month }}</td>  
         <td>{{ caraccident.day }}</td>  
