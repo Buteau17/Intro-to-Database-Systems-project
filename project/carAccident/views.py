@@ -8,6 +8,7 @@ import plotly.express as px
 
 from .models import *
 import json 
+import math
 
 import pandas as pd
 from .forms import CaraccidentForm
@@ -26,9 +27,16 @@ def emp(request):
     else:  
         form =  CaraccidentForm()  
     return render(request,'index.html',{'form':form})  
-def show(request):  
-    caraccidents = Caraccident.objects.all()  
-    return render(request,"show.html",{'caraccidents':caraccidents})  
+def show(request, page=1):  
+    caraccidents = Caraccident.objects.all()
+    row = 100
+    min = 1
+    max = math.ceil(len(caraccidents)/row)
+    return render(request,"show.html",{'caraccidents':caraccidents[(page-1)*row:page*row], 
+                                       'page': page, 
+                                       'prev': page - 1 if page > min else min, 
+                                       'next': page + 1 if page < max else max,
+                                       'min': min, 'max': max})  
 def edit(request, id):  
     caraccident = Caraccident.objects.get(id=id)  
     return render(request,'edit.html', {'caraccident':caraccident})  
