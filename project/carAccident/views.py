@@ -55,14 +55,14 @@ def destroy(request, id):
 def index(request):
     df = pd.DataFrame(list(zip(list(AmountAccidentbymonth().keys()),list(AmountAccidentbymonth().values()))), columns=['month', 'count'])
     print(df)
-    fig = px.line(df, y='count', x='month', title='Amount of accident per month (2022)')
+    fig = px.line(df, y='count', x='month', title='Amount of accident per month (2012)')
     plot_div = plot(fig, output_type='div')
 
     x = ['rainy', 'sunny', 'snow']
     y = [52, 104, 33]
     df = pd.DataFrame(list(zip(list(GetDeathByGender().keys()),list(GetDeathByGender().values()))), columns=['gender', 'count'])
     print(df)
-    fig = px.pie(df, values='count', names='gender', title='Death by gender(2022)')
+    fig = px.pie(df, values='count', names='gender', title='Death by gender(2012)')
     plot2_div = plot(fig, output_type='div')
      
     df = pd.DataFrame(list(zip(list(Weather().keys()),list(Weather().values()))), columns=['weather', 'count'])
@@ -72,12 +72,12 @@ def index(request):
 
     df = pd.DataFrame(list(zip(list(GetLevelofinjurybygender()['male'].keys()),list(GetLevelofinjurybygender()['male'].values()))), columns=['male', 'count'])
     print(df)
-    fig = px.pie(df, values='count', names='male', title='Level of injury for male (2022)')
+    fig = px.pie(df, values='count', names='male', title='Level of injury for male (2012)')
     plot4_div = plot(fig, output_type='div')
 
     df = pd.DataFrame(list(zip(list(GetLevelofinjurybygender()['female'].keys()),list(GetLevelofinjurybygender()['female'].values()))), columns=['female', 'count'])
     print(df)
-    fig = px.pie(df, values='count', names='female', title='Level of injury for female (2022)')
+    fig = px.pie(df, values='count', names='female', title='Level of injury for female (2012)')
     plot5_div = plot(fig, output_type='div')
     return render(request, "home.html", context={'plot_div': plot_div,'a_div': plot2_div,'b_div': plot3_div , 'c_div': plot4_div, 'd_div': plot5_div})
 
