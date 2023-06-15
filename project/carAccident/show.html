@@ -24,21 +24,21 @@
     </tr>  
     </thead>  
     <tbody>  
-{% for accident in accidents %}  
+{% for caraccident in caraccidents %}  
     <tr>  
-        <td>{{ accident.year }}</td>  
-        <td>{{ accident.month }}</td>  
-        <td>{{ accident.day }}</td>  
-        <td>{{ accident.hour }}</td> 
-        <td>{{ accident.type }}</td>
-        <td>{{ accident.district }}</td>
-        <td>{{ accident.location }}</td>
-        <td>{{ accident.amountofdeath }}</td>
-        <td>{{ accident.amountofinjuries }}</td> 
-        <td>{{ accident.sequenceofpartiesinvolved }}</td>
+        <td>{{ caraccident.year }}</td>  
+        <td>{{ caraccident.month }}</td>  
+        <td>{{ caraccident.day }}</td>  
+        <td>{{ caraccident.hour }}</td> 
+        <td>{{ caraccident.type }}</td>
+        <td>{{ caraccident.district }}</td>
+        <td>{{ caraccident.location }}</td>
+        <td>{{ caraccident.amountofdeath }}</td>
+        <td>{{ caraccident.amountofinjuries }}</td> 
+        <td>{{ caraccident.sequenceofpartiesinvolved }}</td>
         <td>  
-            <a href=""><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
-            <a href="">Delete</a>  
+            <a href="/edit/{{ caraccident.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/delete/{{ caraccident.id }}">Delete</a>  
         </td>  
     </tr>  
 {% endfor %}  

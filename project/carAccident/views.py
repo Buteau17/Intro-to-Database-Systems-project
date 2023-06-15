@@ -27,21 +27,21 @@ def emp(request):
         form =  CaraccidentForm()  
     return render(request,'index.html',{'form':form})  
 def show(request):  
-    accidents = Caraccident.objects.all()  
-    return render(request,"show.html",{'accidents':accidents})  
+    caraccidents = Caraccident.objects.all()  
+    return render(request,"show.html",{'caraccidents':caraccidents})  
 def edit(request, id):  
-    accident = Caraccident.objects.get(id=id)  
-    return render(request,'edit.html', {'accident':accident})  
+    caraccident = Caraccident.objects.get(id=id)  
+    return render(request,'edit.html', {'caraccident':caraccident})  
 def update(request, id):  
-    accident = Caraccident.objects.get(id=id)  
-    form =  CaraccidentForm(request.POST, instance = accident)  
+    caraccident = Caraccident.objects.get(id=id)  
+    form =  CaraccidentForm(request.POST, instance = caraccident)  
     if form.is_valid():  
         form.save()  
         return redirect("/show")  
-    return render(request, 'edit.html', {'accident': accident})  
+    return render(request, 'edit.html', {'caraccident': caraccident})  
 def destroy(request, id):  
-    accident = Caraccident.objects.get(id=id)  
-    accident.delete()  
+    caraccident = Caraccident.objects.get(id=id)  
+    caraccident.delete()  
     return redirect("/show")  
 
 def index(request):

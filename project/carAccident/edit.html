@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
 </head>  
 <body>  
-<form method="POST" class="post-form" action="/update/{{accident.id}}">  
+<form method="POST" class="post-form" action="/update/{{caraccident.id}}">  
         {% csrf_token %}  
     <div class="container">  
 <br>  
@@ -20,67 +20,67 @@
     <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Year</label>  
     <div class="col-sm-4">  
-        <input type="text" name="year" id="id_year" required maxlength="20" value="{{ accident.year}}"/>  
+        <input type="text" name="year" id="id_year" required maxlength="20" value="{{ caraccident.year}}"/>  
     </div>  
   </div>  
   <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Month:</label>  
     <div class="col-sm-4">  
-        <input type="text" name="month" id="id_month" required maxlength="20" value="{{ accident.month }}" />  
+        <input type="text" name="month" id="id_month" required maxlength="20" value="{{ caraccident.month }}" />  
     </div>  
   </div>  
     <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Day:</label>  
     <div class="col-sm-4">  
-        <input type="email" name="day" id="id_day" required maxlength="20" value="{{ accident.day }}" />  
+        <input type="email" name="day" id="id_day" required maxlength="20" value="{{ caraccident.day }}" />  
     </div>  
   </div>  
     <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Hour:</label>  
     <div class="col-sm-4">  
-        <input type="text" name="hour" id="id_hour" required maxlength="20" value="{{ accident.hour }}" />  
+        <input type="text" name="hour" id="id_hour" required maxlength="20" value="{{ caraccident.hour }}" />  
     </div>  
   </div> 
     <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Minute:</label>  
     <div class="col-sm-4">  
-        <input type="text" name="minute" id="id_minute" required maxlength="20" value="{{ accident.minute }}" />  
+        <input type="text" name="minute" id="id_minute" required maxlength="20" value="{{ caraccident.minute }}" />  
     </div>  
   </div> 
     <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Type:</label>  
     <div class="col-sm-4">  
-        <input type="text" name="type" id="id_type" required maxlength="100" value="{{ accident.type }}" />  
+        <input type="text" name="type" id="id_type" required maxlength="100" value="{{ caraccident.type }}" />  
     </div>  
   </div>
   <div class="form-group row">  
     <label class="col-sm-2 col-form-label">District:</label>  
     <div class="col-sm-4">  
-        <input type="text" name="district" id="id_district" required maxlength="250" value="{{ accident.district }}" />  
+        <input type="text" name="district" id="id_district" required maxlength="250" value="{{ caraccident.district }}" />  
     </div>  
   </div>
     <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Location:</label>  
     <div class="col-sm-4">  
-        <input type="text" name="location" id="id_location" required maxlength="254" value="{{ accident.location}}" />  
+        <input type="text" name="location" id="id_location" required maxlength="254" value="{{ caraccident.location}}" />  
     </div>  
   </div>
     <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Amount of death:</label>  
     <div class="col-sm-4">  
-        <input type="text" name="amountofdeath" id="id_amountofdeath" required maxlength="20" value="{{ accident.amountofdeath }}" />  
+        <input type="text" name="amountofdeath" id="id_amountofdeath" required maxlength="20" value="{{ caraccident.amountofdeath }}" />  
     </div>  
   </div>
   <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Amount of injuries:</label>  
     <div class="col-sm-4">  
-        <input type="text" name="amountofinjuries" id="id_amountofinjuries" required maxlength="20" value="{{ accident.amountofinjuries}}" />  
+        <input type="text" name="amountofinjuries" id="id_amountofinjuries" required maxlength="20" value="{{ caraccident.amountofinjuries}}" />  
     </div>  
   </div>
   <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Sequence of parties involved:</label>  
     <div class="col-sm-4">  
-        <input type="text" name="sequenceofpartiesinvolved" id="id_sequenceofpartiesinvolved" required maxlength="20" value="{{ accident.sequenceofpartiesinvolved }}" />  
+        <input type="text" name="sequenceofpartiesinvolved" id="id_sequenceofpartiesinvolved" required maxlength="20" value="{{ caraccident.sequenceofpartiesinvolved }}" />  
     </div>  
   </div>
     <div class="form-group row">  
