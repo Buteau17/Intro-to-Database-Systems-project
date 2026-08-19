@@ -2,3 +2,7 @@ __pycache__/
 project/__pycache__/
 project/project/__pycache__/
 project/carAccident/__pycache__/
+project/carAccident/migrations/__pycache__/
+project/db.sqlite3
+venv/
+.venv/

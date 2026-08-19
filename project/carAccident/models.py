@@ -32,7 +32,7 @@ class Caraccident(models.Model):
     locationofaccident = models.IntegerField(db_column='LocationOfAccident', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'caraccident'
 
 def GetLevelofinjurybygender():
