@@ -6,3 +6,4 @@ project/carAccident/migrations/__pycache__/
 project/db.sqlite3
 venv/
 .venv/
+project/staticfiles/
